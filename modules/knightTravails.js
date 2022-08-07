@@ -27,7 +27,7 @@ const knightTravails = (start, end) => {
   // backtrace path
   const path = [];
   let curCoord = end;
-  while (curCoord[0] !== start[0] && curCoord[1] !== start[1]) {
+  while (curCoord[0] !== start[0] || curCoord[1] !== start[1]) {
     path.unshift(curCoord);
     curCoord = board.lastCoord[curCoord[0]][curCoord[1]];
   }

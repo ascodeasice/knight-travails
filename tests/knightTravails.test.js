@@ -26,5 +26,9 @@ describe('knightTravails', () => {
 
   it('Shortest path 4', () => {
     expect(knightTravails([0, 0], [4, 5])).toEqual([[0, 0], [1, 2], [2, 4], [4, 5]]);
-  })
+  });
+
+  it('Shortest path 5', () => {
+    expect(knightTravails([3, 3], [4, 3]).length).toBe(4);
+  });
 });
