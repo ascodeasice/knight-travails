@@ -1,4 +1,4 @@
-import Board from './Board';
+import Board from './Board.js';
 
 const knightTravails = (start, end) => {
   const board = Board();
@@ -20,6 +20,7 @@ const knightTravails = (start, end) => {
         return;
       }
       queue.push(coord);
+      board.visited[coord[0]][coord[1]] = true;
       board.lastCoord[coord[0]][coord[1]] = [curCoord[0], curCoord[1]];
     });
   }
