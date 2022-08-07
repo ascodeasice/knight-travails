@@ -9,18 +9,26 @@ const Board = (size = 8) => {
     visited.push(row);
   }
 
+  let lastCoord = [];
+  for (let i = 0; i < size; i++) {
+    let row = [];
+    for (let j = 0; j < size; j++) {
+      row.push(false);
+    }
+    lastCoord.push(row);
+  }
+
   const isValidCoord = (row, col) => {
     return row >= 0 && row < size && col >= 0 && col < size;
   }
 
   const getPossiblePath = (row, col) => {
     const directions = [[2, 1], [2, -1], [-2, 1], [-2, -1], [1, 2], [1, -2], [-1, 2], [-1, -2]];
-    return (directions.map(coord => [row + coord[0], col + coord[1]])
-      .filter(coord => isValidCoord(coord[0], coord[1]))
-    );
+    return directions.map(coord => [row + coord[0], col + coord[1]])
+      .filter(coord => isValidCoord(coord[0], coord[1]));
   }
 
-  return { visited, isValidCoord, getPossiblePath };
+  return { visited, lastCoord, isValidCoord, getPossiblePath };
 }
 
 export default Board;
